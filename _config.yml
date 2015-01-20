@@ -1,18 +1,14 @@
-gems: [bourbon, neat]
+title: Jekyll
+baseurl: http://localhost
+permalink: /:title.html
+encoding: "utf-8"
+lsi: false
 
-# Structure configuration
 source: source
 destination: build
 
-assets:
-  cachebust: soft
+sass:
+  style: expanded
 
-# Site settings
-title: Proteus
-description: Prototyping starter kit for Jekyll
-
-# Name of project on Github
-baseurl: /proteus-jekyll
-
-# Build settings
 markdown: kramdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"

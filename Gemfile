@@ -1,10 +1,9 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'bourbon'
-gem 'coffee-script'
-gem 'jekyll'
-gem 'jekyll-assets'
-gem 'jekyll-haml'
-gem 'neat'
-gem 'sass'
-gem 'uglifier'
+gem "jekyll"
+gem "jekyll-slim"
+gem "sass"
+gem "coffee-script"
+gem "uglifier"
+gem "neat"
+gem "bourbon"
