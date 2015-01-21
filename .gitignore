@@ -1,5 +1,9 @@
 _site
-.sass-cache
-/build/
+build
 bourbon
 neat
+components
+
+.sass-cache
+.twitter-cache
+.embedly-cache
