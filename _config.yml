@@ -1,14 +1,16 @@
 title: Jekyll
-baseurl: http://localhost
+url: http://localhost:4000
 permalink: /:title.html
 encoding: "utf-8"
 lsi: false
+jquery_version: 1.11.2
 
 source: source
 destination: build
 
 sass:
-  style: expanded
+  style: compressed
+  sass_dir: assets/stylesheets
 
 markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"

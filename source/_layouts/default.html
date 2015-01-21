@@ -1,19 +1,37 @@
 ---
-# Layouts must stay in HTML
 ---
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ site.description }}">
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    <link rel="stylesheet" href="{{ site.baseurl }}{% asset_path application.css %}">
+
+    <title>{% capture title %}{% if page.title %}{{ "page.title | titleize | abvise | og_uneducate | og_escape_html | abv_title_tag }}{% else %}{{ site.title }}{% endif %}{% endcapture %}{{ title }}</title>
+    <link rel="canonical" href="{% capture canonical_url %}{{ page.url | prepend: site.baseurl | replace:'home/','' | prepend: site.url }}{% endcapture %}{{ canonical_url }}">
+    <meta name="description" content="{% capture description %}{% if page.description %}{{ page.description | strip_html | strip_newlines | og_uneducate | og_escape_html }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | og_uneducate | og_escape_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}{{ description }}">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="{% capture og_type %}{{ page.layout | og_type }}{% endcapture %}{{ og_type }}">
+    <meta property="og:title" content="{{ title | og_escape_html }}">
+    <meta property="og:description" content="{{ description | og_escape_html }}">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    {% if page.image %}<meta property="og:image" content="{{ page.image }}">{% endif %}
+    {% if og_type == "article" %}<meta property="article:publisher" content="{{ site.social.facebook }}">{% endif %}
+
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/stylesheets/global.css">
+
+    <script src="/assets/javascripts/modernizr.js"></script>
+    {% if site.jquery_version %}<script src="//ajax.googleapis.com/ajax/libs/jquery/{{ site.jquery_version }}/jquery.min.js"></script>{% endif %}
   </head>
   <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
     {{ content }}
-    <script type="text/javascript" src="{{ site.baseurl }}{% asset_path application.js %}"></script>
+
+    <script src="/assets/javascripts/global.js"></script>
   </body>
 </html>

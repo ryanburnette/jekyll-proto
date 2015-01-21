@@ -1,9 +1,12 @@
 source "https://rubygems.org"
 
-gem "jekyll"
+gem "jekyll", "2.5.2"
 gem "jekyll-slim"
 gem "sass"
 gem "coffee-script"
 gem "uglifier"
 gem "neat"
 gem "bourbon"
+gem "bitters"
+gem "rack"
+gem "rubypants"
