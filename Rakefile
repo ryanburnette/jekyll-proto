@@ -3,7 +3,7 @@ task :bourbon do
   sh "cd source/assets/stylesheets && bourbon install"
 end
 
-desc "Install Bourbon"
+desc "Install Neat"
 task :neat do
   sh "cd source/assets/stylesheets && neat install"
 end
